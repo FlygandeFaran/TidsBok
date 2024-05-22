@@ -144,6 +144,7 @@ namespace TidsBok
         {
             string filepath = @"\\ltvastmanland.se\ltv\shares\rhosonk\Strålbehandling\VARIAN\Eclipse Script\Settings\PositionCosmic.txt";
             int BehPosition = int.Parse(File.ReadAllLines(filepath)[0]);
+            int buffert = 500;
 
             patID = patID.Substring(2);
 
@@ -153,7 +154,7 @@ namespace TidsBok
             Thread.Sleep(100);
             CheckIfMoved(mp);
             MouseClick();
-            Thread.Sleep(100);
+            Thread.Sleep(300);
             SendKeys.SendWait(patID);
             SendKeys.SendWait("{ENTER}");
 
@@ -229,7 +230,7 @@ namespace TidsBok
             SetCursorPosition(mp);
             Thread.Sleep(300);
             MouseClick();
-            Thread.Sleep(2500);
+            Thread.Sleep(2500 + buffert);
             CheckIfMoved(mp);
 
             //Rensa patient

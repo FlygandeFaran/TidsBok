@@ -15,7 +15,6 @@ namespace TidsBok
         public Interruption()
         {
             InitializeComponent();
-
         }
     }
 }
