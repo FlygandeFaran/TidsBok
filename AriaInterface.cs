@@ -69,6 +69,42 @@ namespace TidsBok
                                                             Activity.ActivityCode != 'Kortkontroll TB1' AND
                                                             Activity.ActivityCode != 'Kortkontroll TB2' AND
                                                             Activity.ActivityCode != 'Paus' AND
+                                                            Activity.ActivityCode != 'RESERVERAT' AND
+                                                            Activity.ActivityCode != 'QA'
+                                                        ORDER BY
+                                                            ScheduledActivity.ScheduledStartTime
+                                                            ");
+            Disconnect();
+            return datatable;
+        }
+        public static DataTable GetScheduledActivitiesAlreadyTreated(string startDate, string endDate)
+        {
+            Connect();
+            DataTable datatable = AriaInterface.Query(@"SELECT DISTINCT
+                                                            Patient.PatientId,
+                                                            ScheduledActivity.ScheduledStartTime
+                                                        FROM
+                                                            Machine,
+                                                            ScheduledActivity,
+                                                            ResourceActivity,
+                                                            Activity,
+                                                            ActivityInstance,
+                                                            Patient
+                                                        WHERE
+                                                            (Patient.PatientId like '19%' OR
+                                                            Patient.PatientId like '20%') AND
+                                                            ScheduledActivity.PatientSer = Patient.PatientSer AND
+                                                            ScheduledActivity.ScheduledStartTime BETWEEN '" + startDate + @"' AND '" + endDate + @"' AND
+                                                            ScheduledActivity.ScheduledActivitySer = ResourceActivity.ScheduledActivitySer AND
+                                                            ResourceActivity.ResourceSer = Machine.ResourceSer AND
+                                                            (Machine.MachineName LIKE 'Strålbehandling 1' OR
+                                                            Machine.MachineName LIKE 'Strålbehandling 2') AND
+                                                            ActivityInstance.ActivityInstanceSer = ScheduledActivity.ActivityInstanceSer AND
+                                                            Activity.ActivitySer = ActivityInstance.ActivitySer AND
+                                                            Activity.ActivityCode != 'Kortkontroll TB1' AND
+                                                            Activity.ActivityCode != 'Kortkontroll TB2' AND
+                                                            Activity.ActivityCode != 'Paus' AND
+                                                            Activity.ActivityCode != 'RESERVERAT' AND
                                                             Activity.ActivityCode != 'QA'
                                                         ORDER BY
                                                             ScheduledActivity.ScheduledStartTime
@@ -100,6 +136,7 @@ namespace TidsBok
                                                             Activity.ActivitySer = ActivityInstance.ActivitySer AND
                                                             Activity.ActivityCode != 'Kortkontroll TB1' AND
                                                             Activity.ActivityCode != 'Kortkontroll TB2' AND
+                                                            Activity.ActivityCode != 'RESERVERAT' AND
                                                             Activity.ActivityCode != 'QA'
                                                         ORDER BY
                                                             Patient.PatientId

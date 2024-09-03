@@ -39,7 +39,7 @@ namespace TidsBok
 
             bool isFirst = true;
 
-            DataTable appointmentListAlreadyTreated = AriaInterface.GetScheduledActivities(start.AddDays(-14).ToString(), start.ToString(), machine); // Skapar lista som tar alla patienter som har fått behandling de senaste 14 dagarna
+            DataTable appointmentListAlreadyTreated = AriaInterface.GetScheduledActivitiesAlreadyTreated(start.AddDays(-14).ToString(), start.ToString()); // Skapar lista som tar alla patienter som har fått behandling de senaste 14 dagarna
 
             for (int j = 0; j < dates.Count; j++)
             {

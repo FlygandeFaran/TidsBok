@@ -195,7 +195,7 @@
             this.MinimizeBox = false;
             this.Name = "Dialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tidsbokning (av Erik Fura v0.6)";
+            this.Text = "Tidsbokning (av Erik Fura v0.7)";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
