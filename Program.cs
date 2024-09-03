@@ -18,7 +18,6 @@ namespace TidsBok
 {
     internal class Program
     {
-        //s
         static void Main(string[] args)
         {
             Dialog dialog = new Dialog();
@@ -48,7 +47,7 @@ namespace TidsBok
                 end = start.AddDays(1);
                 DataTable appointmentList = AriaInterface.GetScheduledActivities(start.ToString(), end.ToString(), machine);
 
-                appointmentList = RemoveRowsWithFirstItemMatch(appointmentList, CheckedPatients);
+                appointmentList = RemoveRowsWithFirstItemMatch(appointmentList, CheckedPatients); //tar bort de som inte är icheckade
 
                 appointmentList = RemoveFirstFractionPatients(appointmentList, appointmentListAlreadyTreated, out appointmentListAlreadyTreated);
                 for (int i = 0; i < appointmentList.Rows.Count; i++)
