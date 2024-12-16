@@ -1,0 +1,46 @@
+get pos
+8:00	x: 426	y: 235+15*n (n=0)
+8:15	x: 426	y: 235+15*n (n=1)
+
+klicka ner
+
+tryck ctr + skft + B
+
+Vårdtjänst
+flytta till
+x: 606	y: 630
+klicka ner
+flytta till
+x: 606	y: ?? (måste kolla i kliniska)
+
+Kontakttyp
+flytta till
+x: 820	y: 630
+klicka ner
+flytta till
+x: 820	y: 730
+klicka ner
+
+Besökstyp
+flytta till
+x: 606	y: 785
+klicka ner
+flytta till
+x: 606	y: 855
+klicka ner
+
+Spara boka
+flytta till
+x: 1345	y: 963
+klicka ner
+
+Vid överlapp
+flytta till
+x: 934	y: 762
+klicka ner
+
+tryck ctr + F11
+skriv personnummer
+tryck ENTER
+
+repeat
